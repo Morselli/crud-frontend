@@ -14,7 +14,6 @@ export default function Panel() {
   return (
     <div className="panel-container">
       <Navbar isPanel={true} />
-      <h1>Bem vindo, {localStorage?.getItem('userName')}</h1>
       <div className="button-list">
         <Button className={'btn-create'} value={'Novo'} style={buttonFunctionStyle.create} />
       </div>

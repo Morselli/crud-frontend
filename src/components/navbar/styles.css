@@ -4,14 +4,18 @@ nav {
   background-color: #efeff0;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  display: flex;
+}
+
+nav h1 {
+  width: 40%;
+  margin-left: 80px;
+  margin-top: 10px;
+  font-size: 20px;
 }
 
 a {
   text-decoration: none;
-}
-
-nav ul {
-  margin: auto;
 }
 
 .menu-item {
@@ -35,4 +39,23 @@ nav ul {
   background-color: #95a5a6;
   border: 2px solid gray;
   color: white;
+}
+
+.ul-home-login {
+  width: 100%;
+}
+
+.ul-panel {
+  display: flex;
+  justify-content: right;
+  height: 100%;
+  width: 60%;
+}
+
+.ul-panel a {
+  margin-right: 50px;
+}
+
+.ul-panel Button {
+  margin-top: 10px;
 }
