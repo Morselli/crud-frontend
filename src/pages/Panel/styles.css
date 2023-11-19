@@ -1,0 +1,12 @@
+.button-list {
+  width: 1000px;
+  height: 40px;
+  margin: 110px auto 0 auto;
+  display: flex;
+  justify-content: right;
+}
+
+.button-list > Button {
+  margin-top: 5px;
+  border: 1px solid gray;
+}

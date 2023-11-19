@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&family=Poppins:wght@300&display=swap');
+
+
+button {
+  width: 50px;
+  height: 30px;
+  margin-top: 14px;
+  border-radius: 5px;
+  font-family: Poppins, sans-serif;
+  border: 1px solid gray;
+}

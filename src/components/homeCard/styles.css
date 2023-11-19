@@ -1,0 +1,63 @@
+.form-container {
+  width: 100%;
+  max-width: 1120px;
+  height: 60vh;
+  margin: 20vh auto;
+
+  display: flex;
+  align-items: center;
+  background-color: #efeff0;
+}
+
+.logon-image {
+  width: 50%;
+}
+
+.logon-image img {
+  width: 450px;
+  height: 450px;
+  margin-left: 50px;
+}
+
+.logon-form {
+  width: 50%;
+  padding-left: 100px;
+  border-left: 2px solid black;
+  height: 450px;
+}
+
+.logon-form h1 {
+  font-size: 5rem;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  font-family: 'Agdasima', sans-serif;
+  margin-left: 70px;
+}
+
+.logon-form h2 {
+  margin-bottom: 5px;
+}
+
+.logon-form form input {
+  display: block;
+  width: 350px;
+  height: 50px;
+  border: 2px solid gray;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.logon-form form input::placeholder {
+  font-size: 2rem;
+  padding-top: 10px;
+}
+
+.logon-form form button {
+  width: 350px;
+  height: 47px;
+  border: 2px solid gray;
+  border-radius: 6px;
+  font-size: 2rem;
+  background-color: #95a5a6;
+  color: white;
+}

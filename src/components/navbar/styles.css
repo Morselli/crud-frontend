@@ -1,0 +1,38 @@
+nav {
+  height: 50px;
+  width: 100vw;
+  background-color: #efeff0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav ul {
+  margin: auto;
+}
+
+.menu-item {
+  list-style: none;
+  width: 30%;
+  height: 50px;
+  border-radius: 6px;
+  text-align: center;
+  padding-top: 11px;
+  font-size: 2rem;
+  text-decoration: none;
+  float: left;
+  color: black;
+}
+
+.left-menu {
+  margin-left: 300px;
+}
+
+.menu-item:hover {
+  background-color: #95a5a6;
+  border: 2px solid gray;
+  color: white;
+}
