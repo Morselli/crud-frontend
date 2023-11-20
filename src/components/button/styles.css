@@ -9,4 +9,5 @@ button {
   font-family: Poppins, sans-serif;
   border: 1px solid gray;
   font-weight: 600;
+  cursor: pointer;
 }

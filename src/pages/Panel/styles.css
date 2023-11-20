@@ -10,3 +10,19 @@
   margin-top: 5px;
   border: 1px solid gray;
 }
+
+.modal-header {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  justify-content: right;
+}
+
+.modal-header > Button {
+  margin-top: 0;
+}
+
+.modal-header h2 {
+  margin-right: 50px;
+  font-size: 20px;
+}

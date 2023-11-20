@@ -11,7 +11,7 @@
   text-align: center;
   margin: auto 0;
   font-size: 15px;
-  border-bottom: 1px solid gray;
+  border: 1px solid gray;
 }
 
 .user-column.txt {

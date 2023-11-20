@@ -1,11 +1,18 @@
 import React from 'react'
 import './styles.css'
 
-export default function Button({value, style, className}) {
+export default function Button({type, value, style, className, onClick}) {
 
   return (
     <>
-      <button className={className} style={{'backgroundColor': style}}>{value}</button>
+      <button
+        type={type}
+        className={className}
+        style={style}
+        onClick={onClick}
+      >
+        {value}
+      </button>
     </>
   )
 }

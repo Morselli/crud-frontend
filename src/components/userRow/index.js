@@ -1,14 +1,26 @@
-import React from "react"
+import React, { useState } from "react"
 import './styles.css'
 
 import Button from "../button"
+import UserModal from "../modal"
 
 export default function UserRow({ user }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+  }
 
   const buttonFunctionStyle = {
     edit: '#89c4f4',
-    delete: '#f64747'
+    delete: '#f1828d'
   }
+
+  const userId = user.id
 
   return (
     <div className="user-row">
@@ -21,13 +33,20 @@ export default function UserRow({ user }) {
       <div className="user-column btn">
         <Button
           value='Editar'
-          style={buttonFunctionStyle.edit}
+          style={{backgroundColor: buttonFunctionStyle.edit}}
+          onClick={openModal}
+        />
+        <UserModal
+          isOpen={isOpen}
+          cancelParameter={closeModal}
+          isEdit={true}
+          userId={userId}
         />
       </div>
       <div className="user-column btn">
       <Button
           value='Excluir'
-          style={buttonFunctionStyle.delete}
+          style={{backgroundColor: buttonFunctionStyle.delete}}
         />
       </div>
     </div>
