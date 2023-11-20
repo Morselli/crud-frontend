@@ -4,6 +4,12 @@ import "./styles.css"
 import Button from "../button"
 
 export default function Navbar({ isPanel }) {
+
+  function logout() {
+    localStorage.removeItem('userId')
+    localStorage.removeItem('userName')
+  }
+
   return (
     <nav>
       {!isPanel ? (
@@ -15,7 +21,7 @@ export default function Navbar({ isPanel }) {
         <>
           <h1>Bem vindo, {localStorage?.getItem('userName')}</h1>
           <ul className="ul-panel">
-            <a href="/" className="btn-logout"><Button value={'Logout'} /></a>
+            <a href="/" className="btn-logout"><Button value={'Logout'} onClick={logout}/></a>
           </ul>
         </>
       )

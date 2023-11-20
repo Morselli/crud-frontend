@@ -9,7 +9,6 @@ export default function UserForm({ isEdit, cancelParameter, userId }) {
   const [userName, setUserName] = useState('')
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
-  const [userData, setUserData] = useState({})
 
   async function handleCreateUser(e) {
     e.preventDefault()
@@ -21,11 +20,28 @@ export default function UserForm({ isEdit, cancelParameter, userId }) {
         password: userPassword
       })
 
-      notify()
-      setInterval(reloadPage, 3000)
+      notifyCreateSuccess()
+      setInterval(reloadPage, 1500)
     } catch (error) {
       console.log(error)
       alert('Falha ao criar usuário')
+    }
+  }
+
+  async function handleUpdateUser(e, userId) {
+    e.preventDefault()
+
+    try {
+      await api.put(`http://localhost:3333/api/v1/user/${userId}`, {
+        name: userName,
+        email: userEmail
+      })
+
+      notifyUpdateSuccess()
+      setInterval(reloadPage, 1500)
+    } catch (error) {
+      console.log(error)
+      alert('Falha ao atualizar usuário')
     }
   }
 
@@ -35,7 +51,8 @@ export default function UserForm({ isEdit, cancelParameter, userId }) {
 
         try {
           const getUserByIdResponse = await api.get(`http://localhost:3333/api/v1/user/${userId}`)
-          setUserData(getUserByIdResponse.data)
+          setUserName(getUserByIdResponse.data.name)
+          setUserEmail(getUserByIdResponse.data.email)
         } catch (error) {
           console.log(error)
         }
@@ -45,9 +62,20 @@ export default function UserForm({ isEdit, cancelParameter, userId }) {
     }
   }, [isEdit, userId])
 
-  const notify = () => toast("Usuário criado com sucesso!", {
+  const notifyCreateSuccess = () => toast("Usuário criado com sucesso!", {
     position: "top-right",
-    autoClose: 3000,
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  })
+
+  const notifyUpdateSuccess = () => toast("Usuário atualizado com sucesso!", {
+    position: "top-right",
+    autoClose: 1500,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -74,27 +102,18 @@ export default function UserForm({ isEdit, cancelParameter, userId }) {
     <div className='user-form-container'>
       {isEdit ? (
         <>
-          <form>
+          <form onSubmit={e => handleUpdateUser(e, userId)}>
             <input
               type='text'
               name='name'
-              placeholder='Nome do usuário'
-              value={userData?.name}
+              value={userName}
               onChange={e => setUserName(e.target.value)}
             />
             <input
               type='email'
               name='email'
-              placeholder='E-mail do usuário'
-              value={userData?.email}
+              value={userEmail}
               onChange={e => setUserEmail(e.target.value)}
-            />
-            <input
-              type='password'
-              name='password'
-              placeholder='Senha do usuário'
-              value={userPassword}
-              onChange={e => setUserPassword(e.target.value)}
             />
             <div className='modal-button-list'>
               <Button

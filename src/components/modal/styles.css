@@ -1,0 +1,19 @@
+.delete-modal-body {
+  width: 100%;
+  height: 80%;
+}
+
+.delete-confirm-message {
+  width: 80%;
+  text-align: center;
+  font-size: 15px;
+  margin: 0 auto;
+  padding-top: 160px;
+}
+
+.delete-modal-buttons {
+  width: 60%;
+  margin: 40px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}

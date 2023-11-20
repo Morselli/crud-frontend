@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 
 import "./styles.css"
@@ -29,6 +29,13 @@ export default function Logon() {
       alert('Falha no login, tente novamente')
     }
   }
+
+  useEffect(() => {
+    const localStorageId = localStorage.getItem('userId')
+    if (localStorageId) {
+      navigate('/panel')
+    }
+  })
 
   return (
     <div className="logon-container">

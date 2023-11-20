@@ -5,14 +5,23 @@ import Button from "../button"
 import UserModal from "../modal"
 
 export default function UserRow({ user }) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [openEdit, setOpenEdit] = useState(false)
+  const [openDelete, setOpenDelete] = useState(false)
 
-  function openModal() {
-    setIsOpen(true)
+  function openEditModal() {
+    setOpenEdit(true)
   }
 
-  function closeModal() {
-    setIsOpen(false)
+  function openDeleteModal() {
+    setOpenDelete(true)
+  }
+
+  function closeEditModal() {
+    setOpenEdit(false)
+  }
+
+  function closeDeleteModal() {
+    setOpenDelete(false)
   }
 
   const buttonFunctionStyle = {
@@ -33,20 +42,27 @@ export default function UserRow({ user }) {
       <div className="user-column btn">
         <Button
           value='Editar'
-          style={{backgroundColor: buttonFunctionStyle.edit}}
-          onClick={openModal}
+          style={{ backgroundColor: buttonFunctionStyle.edit }}
+          onClick={openEditModal}
         />
         <UserModal
-          isOpen={isOpen}
-          cancelParameter={closeModal}
+          isOpen={openEdit}
+          cancelParameter={closeEditModal}
           isEdit={true}
           userId={userId}
         />
       </div>
       <div className="user-column btn">
-      <Button
+        <Button
           value='Excluir'
-          style={{backgroundColor: buttonFunctionStyle.delete}}
+          style={{ backgroundColor: buttonFunctionStyle.delete }}
+          onClick={openDeleteModal}
+        />
+        <UserModal
+          isOpen={openDelete}
+          cancelParameter={closeDeleteModal}
+          isDelete={true}
+          userId={userId}
         />
       </div>
     </div>
