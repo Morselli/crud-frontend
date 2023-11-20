@@ -32,11 +32,9 @@ export default function UserForm({ isEdit, cancelParameter, userId }) {
   useEffect(() => {
     if (isEdit) {
       async function handleGetUserData(userId) {
-        //e.preventDefault()
 
         try {
           const getUserByIdResponse = await api.get(`http://localhost:3333/api/v1/user/${userId}`)
-          console.log(getUserByIdResponse.data)
           setUserData(getUserByIdResponse.data)
         } catch (error) {
           console.log(error)
